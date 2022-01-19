@@ -23,57 +23,120 @@ class Solution {
          */
 
         int stringSize = s.length(); // 문자열 총 길이
-        int answer = stringSize;
+        int answer = 0;
 
-        int cNum;
-        for(int i = 0; i < stringSize; i++){
-            cNum = stringSize - 1; // 몇개로 자를것인지
+        int cNum = 0;
 
-            double b = stringSize / (double)cNum;
-            if (b-(int)b != 0.0) b += 1;
-            int divNum = (int)b;
+        for(int t = stringSize; 0 < t; t--){ // i는 자를 수
+
+            String a = "";
+            String temp = ""; // 뒷 문자열과 비교할 String
+            int count = 0;
+            String flag = "N";
+
+            for(int i = 0; i <= s.length();  ){
+                if(i == 0) {
+                    temp = s.substring(i, t);
+                    a = s.substring(i, t);
+
+                }else{
+
+                    if(i + (t) >= s.length()){
+                        if(temp.equals(s.substring(i, s.length()))){
+                            if(flag.equals("N")){
+                                count++;
+                            }
+                        }else{
+                            a += s.substring(i, s.length());
+                        }
+                        break;
+                    }
+
+                    if(temp.equals(s.substring(i, i+t))){
+                        if(flag.equals("N")){
+                            count++;
+                            flag = "Y";
+                        }else{
+                            continue;
+                        }
+
+                    }else{
+                        flag = "N";
+                        a += s.substring(i, i+t);
+                        temp = s.substring(i, i+t);
+                    }
+
+                }
+                i += (t);
+            }
+            count += a.length();
 
 
-            String addStr = "";
-//            for(int c = 0; c < divNum; c++){
-//
-//                s.substring(0, cNum);
-//            }
-            while (true){
-
+            if(t == stringSize){
+                cNum = count;
+            }else{
+                if(cNum > count) cNum = count;
             }
 
-
-
-
-
         }
+
+        answer = cNum;
         return answer;
     }
 
 
 
     public static void main(String[] args) {
-//        Solution s = new Solution();
-//        s.solution();
+        Solution s = new Solution();
+        s.solution("abcabcabcabcdededededede");
 
-        String a = "";
-        String b = "aabbaccc";
-        int t = 8;
-        for(int i = 0; i < b.length();  ){
-            if(i == 0) {
-                a = b.substring(i, t);
-            }else{
-                if(i + (t) > b.length()){
-                    a += (" " + b.substring(i, b.length()));
-                    break;
-                }
-                a += (" " + b.substring(i, i+t));
-            }
-                i = i + (t);
-        }
 
-        System.out.printf(a);
+
+//        String a = "";
+//        String b = "abcabcabcabcdededededede";
+//        int t = 6;
+//
+//        String temp = ""; // 뒷 문자열과 비교할 String
+//        int count = 0;
+//        String flag = "N";
+//
+//        for(int i = 0; i <= b.length();  ){
+//            if(i == 0) {
+//                temp = b.substring(i, t);
+//                a = b.substring(i, t);
+//
+//            }else{
+//
+//                if(i + (t) >= b.length()){
+//                    if(temp.equals(b.substring(i, b.length()))){
+//                        if(flag.equals("N")){
+//                            count++;
+//                        }
+//                    }else{
+//                        a += b.substring(i, b.length());
+//                    }
+//                    break;
+//                }
+//
+//                if(temp.equals(b.substring(i, i+t))){
+//                    if(flag.equals("N")){
+//                        count++;
+//                        flag = "Y";
+//                    }else{
+//                        continue;
+//                    }
+//
+//                }else{
+//                    flag = "N";
+//                    a += b.substring(i, i+t);
+//                    temp = b.substring(i, i+t);
+//                }
+//
+//            }
+//                i += (t);
+//        }
+//        count += a.length();
+//        System.out.printf(a);
 
     }
 }

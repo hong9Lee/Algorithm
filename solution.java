@@ -18,22 +18,23 @@ class Solution {
         for (String chId : idList) {
             String strNm = "";
             for (int i = rList.size()-1; i >= 0; i--) {
+
                 if(rList.get(i).length() > 0 && rList.get(i).split(" ")[1].equals(chId)){
                     String key = rList.get(i).split(" ")[0];
 
+
                     if(strNm.length() == 0) strNm = rList.get(i).split(" ")[2];
+                    String result = strNm + "님이 ";
+
                     if(key.equals("Change")) {
                         rList.set(i, "");
                         continue;
-                    }
-
-                    String result = strNm + "님이 ";
-
-                    if(key.equals("Enter")){
+                    }else if(key.equals("Enter")){
                         result += "들어왔습니다.";
-                    }else{
+                    }else {
                         result += "나갔습니다.";
                     }
+
                     rList.set(i, result);
 
                 }

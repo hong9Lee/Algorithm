@@ -17,11 +17,10 @@ class Solution {
         ArrayList<String> rList = new ArrayList<String>(Arrays.asList(record));
         for (String chId : idList) {
             String strNm = "";
-            for (int i = rList.size()-1; i >= 0; i--) {
 
+            for (int i = rList.size()-1; i >= 0; i--) {
                 if(rList.get(i).length() > 0 && rList.get(i).split(" ")[1].equals(chId)){
                     String key = rList.get(i).split(" ")[0];
-
 
                     if(strNm.length() == 0) strNm = rList.get(i).split(" ")[2];
                     String result = strNm + "님이 ";
@@ -36,7 +35,6 @@ class Solution {
                     }
 
                     rList.set(i, result);
-
                 }
             }
         }
@@ -47,9 +45,9 @@ class Solution {
         return answer;
     }
 
-
     public static void main(String[] args) {
-        Solution solution = new Solution();
-        solution.solution(new String[]{"Enter uid1234 Muzi", "Enter uid4567 Prodo","Leave uid1234","Enter uid1234 Prodo","Change uid4567 Ryan"});
+
+//        Solution solution = new Solution();
+//        solution.solution(new String[]{"Enter uid1234 Muzi", "Enter uid4567 Prodo","Leave uid1234","Enter uid1234 Prodo","Change uid4567 Ryan"});
     }
 }

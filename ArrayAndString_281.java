@@ -210,23 +210,116 @@ public class ArrayAndString_281 {
         /** 하나 뺴기  END */
 
         /** 문자열 압축 */
+        String compressBad(String str) {
+            String compressedString = ""; // StringBuilder를 쓰면 개선됨.
+            int countConsecutive = 0;
+
+            for (int i = 0; i < str.length(); i++) {
+                countConsecutive++;
+
+                /** 다음 문자와 현재 문자가 같지 않다면 현재 문자를 결과 문자열에 추가. */
+                if (i+1 >= str.length() || str.charAt(i) != str.charAt(i + 1)) {
+                    compressedString += "" + str.charAt(i) + countConsecutive;
+                    countConsecutive = 0;
+                }
+            }
+            return compressedString.length() < str.length() ? compressedString : str;
+        }
+
+        String compress(String str) {
+            /** 압축된 문자열의 길이가 입력 문자열보다 길다면 입력 문자열을 반환한다. */
+            int finalLength = countCompression(str);
+            if(finalLength >= str.length()) return str;
+
+            StringBuilder sb = new StringBuilder(finalLength);
+            int countConsecutive = 0;
+            for (int i = 0; i < str.length(); i++) {
+                countConsecutive++;
+
+                /** 다음 문자와 현재 문자가 같지 않다면 현재 문자를 결과 문자열에 추가한다. */
+                if (i + 1 >= str.length() || str.charAt(i) != str.charAt(i + 1)) {
+                    sb.append(str.charAt(i));
+                    sb.append(countConsecutive);
+                    countConsecutive = 0;
+                }
+            }
+
+            return sb.toString();
+        }
+
+        private int countCompression(String str) {
+            int compressedLength = 0;
+            int countConsecutive = 0;
+            for (int i = 0; i < str.length(); i++) {
+                countConsecutive++;
+
+                if(i + 1 >= str.length() || str.charAt(i) != str.charAt(i + 1) ) {
+                    compressedLength += 1 + String.valueOf(countConsecutive).length();
+                    countConsecutive = 0;
+                }
+            }
+            return compressedLength;
+        }
+
 
         /** 문자열 압축 END*/
+
+        /**
+         * 행렬회전 N x N 행렬 90도로 회전
+         */
+
+        boolean rotate(int[][] matrix) {
+            if(matrix.length == 0 || matrix.length != matrix[0].length) return false;
+            int n = matrix.length;
+
+            for (int layer = 0; layer < n / 2; layer++) {
+                int first = layer;
+                int last = n - 1 - layer;
+
+                for (int i = first; i < last; i++) {
+                    int offset = i - first;
+                    int top = matrix[first][i]; // 윗 부분 저장
+
+                    // 왼 -> 위
+                    matrix[first][i] = matrix[last - offset][first];
+
+                    // 아래 -> 왼
+                    matrix[last-offset][first] = matrix[last][last - offset];
+
+                    // 오른쪽 -> 아래쪽
+                    matrix[last][last-offset] = matrix[i][last];
+
+                    // 위 -> 오
+                    matrix[i][last] = top; // 오른쪽 <- 미리 저장해 놓은 top
+                }
+            }
+            return true;
+        }
+        /** 행렬회전 END*/
+
+        /** O행렬 295p*/
+
+        /** O행렬 END */
+
+
+
     }
 
 
     public static void main(String[] args) {
         Sort sort = new Sort();
 //        boolean permutation = sort.permutation1("abc", "cba");
-
 //        char[] chars = {'a', 'b', 'c', ' ', 'd', ' ', 'e'};
 //        int length = chars.length;
-//
 //        sort.replaceSpaces(chars, length);
-
 //        boolean isOdd = sort.isPermutationOfPalindrome("abc");
+//        sort.oneEidtAway2("bb", "abc");
 
-        sort.oneEidtAway2("bb", "abc");
+//        sort.compress("aaabbbbbc");
+
+        int[][] matrix = new int[][]{{1, 2,3,4}, {5,6,7,8}, {9,10,11,12}, {13,14,15,16}};
+        sort.rotate(matrix);
+
 
     }
 }

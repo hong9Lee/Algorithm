@@ -98,7 +98,8 @@ public class SortAndSearch_Q {
         return -1;
     }
 
-    /** 531p */
+
+    /** 회전된 배열 531p */
 
 
 

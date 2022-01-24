@@ -1,3 +1,4 @@
+package algorithm;
 
 // 연결리스트
 public class Node {

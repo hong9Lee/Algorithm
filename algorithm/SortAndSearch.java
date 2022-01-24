@@ -1,3 +1,4 @@
+package algorithm;
 
 /** 정렬과탐색 216p */
 public class SortAndSearch {

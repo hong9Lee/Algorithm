@@ -1,11 +1,11 @@
-package func_dev;
+package stackAndQueue.func_dev;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
 /** 카카오 level2 기능개발 문제 */
+// https://programmers.co.kr/learn/courses/30/lessons/42586
 public class Solution {
-
     public int[] solution(int[] progresses, int[] speeds) {
 
         Queue<Integer> pQueue = new LinkedList<>();

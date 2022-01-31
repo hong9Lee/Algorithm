@@ -25,36 +25,34 @@ public class Solution {
 
         int a = Integer.MAX_VALUE;
         for (int i = 1; i <= s.length() / 2; i++) {
+
             StringBuilder sb = new StringBuilder();
             int count = 1;
 
             String start = s.substring(0, i);
             for (int j = i; j < s.length(); j += i) {
+                if (j + i >= s.length()) {
 
-                if(j + i >= s.length()){
                     String check = s.substring(j, s.length());
                     if (start.equals(check)) {
                         count++;
                         sb.append(count + check);
-                    }else {
-                        if(count != 1){
-                            sb.append(count + start + check);
-                        }else{
-                            sb.append(start + check);
-                        }
+                    } else {
+                        if (count != 1) sb.append(count);
+                        sb.append(start + check);
                     }
                     break;
                 }
 
-                String next = s.substring(j, j+i);
+                String next = s.substring(j, j + i);
+                if (!start.equals(next)) {
 
-                if (!start.equals(next)){
                     if (count != 1) {
-                        sb.append(count + start);
+                        sb.append(count);
                         count = 1;
-                    }else{
-                        sb.append(start);
                     }
+
+                    sb.append(start);
                 } else {
                     count++;
                 }

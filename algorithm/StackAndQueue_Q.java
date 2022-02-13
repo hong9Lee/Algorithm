@@ -141,10 +141,10 @@ public class StackAndQueue_Q {
             return stackNewest.size() + stackOldest.size();
         }
 
-        public void add(T value) {
-            /** 새로운 원소가 상단에 놓이도록 stackNewest에 원소를 삽입한다. */
-            stackNewest.push(value);
-        }
+//        public void add(T value) {
+//            /** 새로운 원소가 상단에 놓이도록 stackNewest에 원소를 삽입한다. */
+//            stackNewest.push(value);
+//        }
 
         /** stackNewest에서 stackOldest로 원소를 옮긴다. stackOldest 연산을 수행하기 위한 작업. */
         private void shiftStacks() {
@@ -155,26 +155,67 @@ public class StackAndQueue_Q {
             }
         }
 
-        public T peek(){
-            shiftStacks(); // stackOldest에 현재 원소들이 들어 있다.
-            return stackOldest.peek(); // 가장 오래된 원소를 반환한다.
+//        public T peek(){
+//            shiftStacks(); // stackOldest에 현재 원소들이 들어 있다.
+//            return stackOldest.peek(); // 가장 오래된 원소를 반환한다.
+//        }
+
+//        public T remove(){
+//            shiftStacks(); // stackOldest에 현재 원소들이 들어 있다.
+//            return stackOldest.pop(); // 가장 오래된 원소를 반환한다.
+//        }
+    }
+
+
+    /**
+     스택 정렬: 가장 작은 값이 위로 오도록 스택을 정렬하는 프로그램을 작성하라. 추가적으로 하나 정도의 스택은 사용해도 괜찮지만， 스택에 보관된 요 소를 배 열 등의 다른 자료구조로 복사할 수는 없다. 스택은 pU5h, pOp, peek, i5Empty의 네 가지 연산을 제공해야 한다.
+     */
+    private static Stack stackSort (Stack s1, Stack s2) {
+
+        int temp = 0;
+        while (!s1.isEmpty()) {
+            temp = (int) s1.pop();
+
+            while (!s2.isEmpty()) {
+                if ((int)s2.peek() < temp){
+                    s2.push(temp);
+                    break;
+                }
+
+                s1.push(s2.pop());
+            }
         }
 
-        public T remove(){
-            shiftStacks(); // stackOldest에 현재 원소들이 들어 있다.
-            return stackOldest.pop(); // 가장 오래된 원소를 반환한다.
-        }
+
+        return s2;
     }
+
+
 
     public static void main(String[] args) {
         System.out.println("start ==>");
-        StackWithMin2 stackWithMin2 = new StackWithMin2();
-        stackWithMin2.push(2);
-        stackWithMin2.push(4);
-        stackWithMin2.push(1);
-        stackWithMin2.pop();
-        stackWithMin2.pop();
-        stackWithMin2.pop();
+//        StackWithMin2 stackWithMin2 = new StackWithMin2();
+//        stackWithMin2.push(2);
+//        stackWithMin2.push(4);
+//        stackWithMin2.push(1);
+//        stackWithMin2.pop();
+//        stackWithMin2.pop();
+//        stackWithMin2.pop();
+
+        Stack<Integer> s1 = new Stack<Integer>();
+        s1.push(5);
+        s1.push(7);
+        s1.push(10);
+
+        Stack<Integer> s2 = new Stack<Integer>();
+        s2.push(1);
+        s2.push(3);
+        s2.push(8);
+        s2.push(12);
+
+        Stack stack = stackSort(s1, s2);
+        System.out.println(stack);
+
 
     }
 }

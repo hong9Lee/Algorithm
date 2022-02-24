@@ -1,11 +1,13 @@
 package codingTest.diskcontroller;
 
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
 public class Solution {
 
     public int solution(int[][] jobs) {
+        Arrays.sort(jobs, ((o1, o2) -> o1[0]-o2[0]));
         PriorityQueue<int[]> queue = new PriorityQueue<>(new Comparator<int[]>() {
             @Override
             public int compare(int[] o1, int[] o2) {

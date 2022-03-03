@@ -1,4 +1,4 @@
-package codingTest.carpet_fullsearch;
+package codingTest.full_search.carpet_fullsearch;
 
 // 완전탐색
 // https://programmers.co.kr/learn/courses/30/lessons/42842

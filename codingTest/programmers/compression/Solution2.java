@@ -1,4 +1,4 @@
-package compression;
+package programmers.compression;
 
 public class Solution2 {
     public int solution(String s) {

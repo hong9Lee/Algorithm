@@ -1,4 +1,4 @@
-package lotto;
+package programmers.lotto;
 
 public class Refactored {
 

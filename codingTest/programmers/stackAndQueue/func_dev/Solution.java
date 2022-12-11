@@ -1,4 +1,4 @@
-package stackAndQueue.func_dev;
+package programmers.stackAndQueue.func_dev;
 
 import java.util.LinkedList;
 import java.util.Queue;

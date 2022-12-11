@@ -1,4 +1,4 @@
-package stackAndQueue.printer;
+package programmers.stackAndQueue.printer;
 
 import java.util.LinkedList;
 import java.util.Queue;

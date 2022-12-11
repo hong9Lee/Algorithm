@@ -10,7 +10,7 @@ import java.util.List;
 // https://programmers.co.kr/learn/courses/30/lessons/42626
 public class Solution {
     public int solution(int[] scoville, int K) {
-//        Arrays.sort(scoville); // 오름차순 정렬
+//        Arrays.programmers.sort(scoville); // 오름차순 정렬
 
         ArrayList<Integer> list = new ArrayList<>();
         for (int i : scoville) {

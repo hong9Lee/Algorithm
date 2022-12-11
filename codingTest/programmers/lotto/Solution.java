@@ -1,9 +1,7 @@
-package lotto;
+package programmers.lotto;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 // https://programmers.co.kr/learn/courses/30/lessons/77484
 public class Solution {

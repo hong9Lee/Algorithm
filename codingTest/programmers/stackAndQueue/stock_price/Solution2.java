@@ -1,4 +1,4 @@
-package stackAndQueue.stock_price;
+package programmers.stackAndQueue.stock_price;
 
 import java.util.*;
 

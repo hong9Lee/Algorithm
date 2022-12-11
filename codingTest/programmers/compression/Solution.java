@@ -1,9 +1,5 @@
-package compression;
+package programmers.compression;
 
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 // https://programmers.co.kr/learn/courses/30/lessons/60057
 // 문자열 압축
